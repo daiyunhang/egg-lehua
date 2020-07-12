@@ -11,8 +11,15 @@ module.exports = app => {
   router.get('/api/loginOut', controller.login.loginOut);
   
   // 以下需要jwt验证
-  // router.all('/*', app.middleware.headerAddAuthorization());
-  // router.get('/api/getUser', controller.user.index) // 查询
+  router.all('/*', app.middleware.headerAddAuthorization());
+  router.get('/api/getUser', controller.user.index) // 查询
+
+  
+  router.post('/api/editPwd', controller.user.editPwd); // 修改密码
+  router.post('/api/upImg', controller.user.upImg); // 上传图片
+  // 修改当前信息 手机号/昵称/头像
+  router.post('/api/editUser', controller.user.editUser);
+
 
 
 

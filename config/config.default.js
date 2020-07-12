@@ -60,6 +60,9 @@ module.exports = appInfo => {
     enable: false, // default is false
     match: /^\/api/, // optional
   }
+  
+  // 图片上传路径
+  config.uploadDir = 'app/public/img'; 
 
   return {
     ...config,
