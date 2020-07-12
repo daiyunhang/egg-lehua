@@ -9,9 +9,9 @@ class LoginController extends Controller {
     // 注册
     async register() {
         const { ctx } = this;
-        const { username, pwd } = ctx.request.body || {};
-        if (username && pwd) {
-            const password = this.getMd5Data(pwd)
+        const { username, password } = ctx.request.body || {};
+        if (username && password) {
+            // const password = this.getMd5Data(password)
             await ctx.service.login.register(username, password);
             ctx.body = { code: 200, msg: '注册成功' };
         } else {
