@@ -11,7 +11,6 @@ class LoginController extends Controller {
         const { ctx } = this;
         const { username, password } = ctx.request.body || {};
         if (username && password) {
-            // const password = this.getMd5Data(password)
             await ctx.service.login.register(username, password);
             ctx.body = { code: 200, msg: '注册成功' };
         } else {
@@ -40,6 +39,7 @@ class LoginController extends Controller {
             // console.log(arr,'arr---------------------------------------------')
             ctx.body = {
                 code: 200,
+                token: token,
                 data: name,
                 msg: '请求成功'
             }
